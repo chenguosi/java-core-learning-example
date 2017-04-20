@@ -3,7 +3,6 @@ package org.javacore.colgoogle;
 import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.TimeUnit;
 
-import com.google.common.base.Function;
 import com.google.common.collect.MapMaker;
 
 /**
@@ -18,12 +17,14 @@ public class MapMakerT0 {
                          * 提供当Map里面不包含所get的项，可以自动加入到Map的功能
                          * 可以将这里的返回值放到对应的key的value中
                          */
-                        new Function<String, String>() {
-                            @Override
-                            public String apply(String s) {
-                                return "creating " + s + " -> Object";
-                            }
-                        });
+                        // new Function<String, String>() {
+                        //     @Override
+                        //     public String apply(String s) {
+                        //         return "creating " + s + " -> Object";
+                        //     }
+                        // }
+                        s -> "creating " + s + " -> Object"
+                        );
 
         map.put("a","testA");
         map.put("b","testB");
